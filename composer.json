@@ -1,0 +1,24 @@
+{
+    "name": "pavlyuts/yate-api",
+    "description": "Yate core API wrapper",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "homepage":"https://github.com/pavlyuts/yate-api",
+    "keywords": [ "yate", "api" ],
+    "require": {
+        "psr/log": "^1.1",
+        "rmccue/requests": "^1.7"
+    },
+    "authors": [
+        {
+            "name": "Alexey Pavlyuts",
+            "email": "alexey@pavlyuts.ru",
+            "homepage": "https://pavlyuts.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "YateAPI\\": ""
+        }
+    }
+}
