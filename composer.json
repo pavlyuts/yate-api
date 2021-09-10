@@ -1,6 +1,6 @@
 {
     "name": "pavlyuts/yate-api",
-    "description": "Yate core API wrapper",
+    "description": "Yate wireless network core API wrapper",
     "type": "library",
     "license": "GPL-2.0-or-later",
     "homepage":"https://github.com/pavlyuts/yate-api",
