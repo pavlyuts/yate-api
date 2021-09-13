@@ -44,21 +44,21 @@ class YateAPI extends Base {
      *    // e.t.c. for every component
      * ];
      * */
-    public function __construct($config, LoggerInterface $logger = null) {
+    public function __construct(array $config, LoggerInterface $logger = null) {
         $this->config = $config;
         parent::__construct($logger);
     }
 
     /**
      * 
-     * @param type $request - what to request, refer to Yate docs
-     * @param type $params - request params, omitted if null 
-     * @param type $node - optional node name. Used to find correct endpoint in 
+     * @param string $request - what to request, refer to Yate docs
+     * @param array $params - request params, omitted if null 
+     * @param string $node - optional node name. Used to find correct endpoint in 
      * config and added to request even used defauls (*) config
      * 
      * @return true on success, false on failure
      */
-    function call($request, $params = null, $node = null ) {
+    function call(string $request, array $params = null, array $node = null ) {
         if (false === ($conf = $this->getConfigByNode($node))) {
             return $this->setError("No config found for node '$node'");
         }
