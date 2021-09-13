@@ -210,34 +210,4 @@ class USSD extends Base {
         return true;
     }
 
-    protected function logInfo(string $message, array $dump = null) {
-        $this->logger->info($message);
-        if (!is_null($dump)) {
-            $this->logger->debug('', $dump);
-        }
-    }
-
-    /**
-     * Logs error
-     * 
-     * @param string $message - error message
-     * @param array $dump - extra data array to put in the log with debug level
-     */
-    protected function logError(string $message, array $dump = null) {
-        $this->logger->error($message);
-        if (!is_null($dump)) {
-            $this->logger->debug('', $dump);
-        }
-    }
-
-    /**
-     * Logs debug information
-     * 
-     * @param string $message - message to log
-     * @param array $dump - extra data array to put in the log
-     */
-    protected function logDebug(string $message, array $dump = null) {
-        $this->logger->debug($message, (is_null($dump)) ? array() : $dump );
-    }
-
 }
