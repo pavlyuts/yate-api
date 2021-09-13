@@ -52,13 +52,13 @@ class YateAPI extends Base {
     /**
      * 
      * @param type $request - what to request, refer to Yate docs
+     * @param type $params - request params, omitted if null 
      * @param type $node - optional node name. Used to find correct endpoint in 
      * config and added to request even used defauls (*) config
-     * @param type $params - request params, omitted if null 
      * 
      * @return true on success, false on failure
      */
-    function call($request, $node = null, $params = null) {
+    function call($request, $params = null, $node = null ) {
         if (false === ($conf = $this->getConfigByNode($node))) {
             return $this->setError("No config found for node '$node'");
         }
