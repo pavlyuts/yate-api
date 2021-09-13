@@ -6,9 +6,11 @@ This package intended to simplify communication to Yate core products from PHP a
 
 *Not properly tested, use at your own risk!*
 
-There two key parts:
-- **[Yate JSON API](https://github.com/pavlyuts/yate-api/wiki/JSON-API)** class wrapping general JSON API to most Yate comonent - both configuration and control.
-- **[USSD gateway API](https://github.com/pavlyuts/yate-api/wiki/USSD-API)** class for USSD gateway interface for creating USSD applications. 
+Classes available:
+- **[Yate JSON API](https://github.com/pavlyuts/yate-api/wiki/Yate-JSON-API)** class wrapping general JSON API to most Yate comonent - both configuration and control.
+- **[USSD gateway API](https://github.com/pavlyuts/yate-api/wiki/USSD-API-class)** class for USSD gateway interface for creating USSD applications
+- **[[USSD demo/test application]](https://github.com/pavlyuts/yate-api/wiki/USSD-Demo-Test-Application)**, a good for learning and test USSD gateway interaction.
+ 
 
 Please, refer [project Wiki](https://github.com/pavlyuts/yate-api/wiki) for details and usage example.
 
