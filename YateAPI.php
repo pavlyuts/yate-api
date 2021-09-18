@@ -78,6 +78,7 @@ class YateAPI extends Base {
             $this->logError("Can't decode JSON data", ['JSON' => $response->body]);
             return $this->setError("Can't decode JSON data");
         }
+        $this->logDebug("Got Yate answer", [$this->resultRaw]);
         return $this->processYateAnswer();
     }
 
