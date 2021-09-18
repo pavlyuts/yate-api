@@ -58,7 +58,7 @@ class YateAPI extends Base {
      * 
      * @return true on success, false on failure
      */
-    function call(string $request, array $params = null, array $node = null ) {
+    function call(string $request, array $params = null, $node = null ) {
         if (false === ($conf = $this->getConfigByNode($node))) {
             return $this->setError("No config found for node '$node'");
         }
