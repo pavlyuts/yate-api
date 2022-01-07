@@ -13,6 +13,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * General Yate JSON API wrapper
+ * Wiki: https://github.com/pavlyuts/yate-api/wiki/Yate-JSON-API
  */
 class YateAPI extends Base {
 
