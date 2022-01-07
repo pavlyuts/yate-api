@@ -21,7 +21,7 @@ class USSD extends Base {
     const SESSIONDATA = 'sessiondata';
 
     protected $uri;
-    protected $sync;
+    protected $sync = false;
     protected $sessionId = null;
     protected $sessionVars = null;
     protected $vars = null;
