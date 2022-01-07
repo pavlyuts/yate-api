@@ -10,6 +10,9 @@ Classes available:
 - **[Yate JSON API](https://github.com/pavlyuts/yate-api/wiki/Yate-JSON-API)** class wrapping general JSON API to most Yate comonent - both configuration and control.
 - **[USSD gateway API](https://github.com/pavlyuts/yate-api/wiki/USSD-API-class)** class for USSD gateway interface for creating USSD applications
 - **[USSD demo/test application](https://github.com/pavlyuts/yate-api/wiki/USSD-Demo-Test-Application)**, a good for learning and test USSD gateway interaction.
+- **[USSD Menu/dialogue engine](https://github.com/pavlyuts/yate-api/wiki/USSD-Menu-Engine)**, for easy create USSD menus, dialogues and applications.
+- **[USSD Menu handler](https://github.com/pavlyuts/yate-api/wiki/USSD-Menu-Handler)**, base class for menu handlers enriched with business logic.
+- **[USSD Demo Menu handler](https://github.com/pavlyuts/yate-api/wiki/USSD-Demo-Menu-Handler)**, demo class, implementing simple USSD menus with examples of session vars management.
  
 
 Please, refer [project Wiki](https://github.com/pavlyuts/yate-api/wiki) for details and usage example.
