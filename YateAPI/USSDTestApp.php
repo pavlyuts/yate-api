@@ -54,9 +54,11 @@ class USSDTestApp extends USSD {
                 $this->sessionStopOnError();
                 break;
             default:
-                $this->sessionVars[] = $this->vars['text'];
+                $this->sessionVars['history'] = isset($this->sessionVars['history']) //
+                        ? $this->sessionVars['history'] . ',' . $this->vars['text'] //
+                        : $this->vars['text'];
                 $text = "USSD test: enter something to echo, 0 or 00 for cancel from network or just cancel the session\n\n"
-                        . "History: " . implode(', ', $this->sessionVars);
+                        . "History: " . $this->sessionVars['history'];
                 $this->sessionAnswer($text);
         }
     }
