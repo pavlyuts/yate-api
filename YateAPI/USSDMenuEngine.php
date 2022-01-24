@@ -16,6 +16,7 @@ namespace YateAPI;
 class USSDMenuEngine extends USSD {
 
     protected $routeMap;
+    protected $devMode;
 
     /**
      * @param array $routeMap - $routeMap is an associateve array of USSD codes 
@@ -35,8 +36,9 @@ class USSDMenuEngine extends USSD {
      * @param \Psr\Log\LoggerInterface $logger - logger to log, loglevel depends 
      *        of logger parameters.
      */
-    public function __construct($routeMap, $uri, \Psr\Log\LoggerInterface $logger = null) {
+    public function __construct($routeMap, $uri, \Psr\Log\LoggerInterface $logger = null, $devMode = false) {
         $this->routeMap = $routeMap;
+        $this->devMode = $devMode;
         parent::__construct($uri, $logger);
     }
 
@@ -52,6 +54,7 @@ class USSDMenuEngine extends USSD {
         $this->logDebug("Starting to process USSD", $this->vars);
         switch ($this->sessionState) {
             case 'start':
+                ($this->devMode) ? $this->devMode() : null;
                 $handlerClass = $this->getRoute();
                 $this->startNewSession($handlerClass);
                 break;
@@ -87,7 +90,7 @@ class USSDMenuEngine extends USSD {
         }
         $next = $handler->StartDialogueFromNetwork($vars);
         if ($next['command'] !== 'continue') {
-            $this->logError("Handler '$handlerClass' returned ".$next['command']." trying to start dialogue from network");
+            $this->logError("Handler '$handlerClass' returned " . $next['command'] . " trying to start dialogue from network");
             return false;
         }
         return $this->sessionStart($msisdn, $next['message'], $next['sessionvars']);
@@ -154,6 +157,15 @@ class USSDMenuEngine extends USSD {
             return false;
         }
         return $this->processAnswer($newHandler->jumpHere($this->vars, $params['sessionvars']));
+    }
+
+    protected function devMode() {
+        if ((1 == preg_match('/^\*[0-9]+(.+)$/', $this->vars['text'], $matches)) && ($matches[1] != '#')) {
+            $this->vars['text'] = $matches[1];
+            $this->logDebug("Dev mode, tweak text to '" . $matches[1] . "'");
+        } else {
+            $this->logError("Wrong 'text' in dev mode: '" . $this->vars['text'] . "'");
+        }
     }
 
 }
